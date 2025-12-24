@@ -1,0 +1,53 @@
+name: QLMarkdown
+options:
+  bundleIdPrefix: com.qlmarkdown
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+
+targets:
+  QLMarkdown:
+    type: application
+    platform: macOS
+    sources:
+      - QLMarkdown
+      - Shared
+    settings:
+      base:
+        INFOPLIST_FILE: ""
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.qlmarkdown.QLMarkdown
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.utilities"
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+        CODE_SIGN_ENTITLEMENTS: QLMarkdown/QLMarkdown.entitlements
+    dependencies:
+      - target: QLMarkdownExtension
+        embed: true
+        codeSign: true
+
+  QLMarkdownExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - QLMarkdownExtension
+      - Shared
+    settings:
+      base:
+        INFOPLIST_FILE: QLMarkdownExtension/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.qlmarkdown.QLMarkdown.QLMarkdownExtension
+        CODE_SIGN_STYLE: Automatic
+        SKIP_INSTALL: YES
+        CODE_SIGN_ENTITLEMENTS: QLMarkdownExtension/QLMarkdownExtension.entitlements
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+          - "@executable_path/../../../../Frameworks"
