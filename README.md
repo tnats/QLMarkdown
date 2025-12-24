@@ -21,7 +21,7 @@ Requires Xcode 15+ and macOS 13+.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/QLMarkdown.git
+   git clone https://github.com/tnats/QLMarkdown.git
    cd QLMarkdown
    ```
 
