@@ -2,7 +2,9 @@
 
 A macOS Quick Look extension for previewing Markdown files. Press Space on any `.md` file in Finder to see rendered Markdown instantly.
 
-![Quick Look Preview](https://img.shields.io/badge/macOS-13.0+-blue.svg)
+![macOS 13.0+](https://img.shields.io/badge/macOS-13.0+-blue.svg)
+
+![QLMarkdown Preview](screenshot.png)
 
 ## Features
 
